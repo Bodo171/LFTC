@@ -1,0 +1,45 @@
+-alphabet
+1.upper/lower case letters
+2.decimal digits
+-operators:
++ 
+- 
+* 
+/ 
+= 
+==
+>
+<
+>=
+<=
+-separators
+[
+]
+;
+(
+)
+{
+}
+space
+newline
+-reserved words:
+while
+declare
+int
+string
+read
+write
+if
+array
+-identifiers -sequences of letters&digits starting with a letter
+	- letter.= "a" | "b" | .. |"z" | "A" | "B" | .. | "Z"
+	- positive_digit.= | "1" | .. | "9"
+	- digit.="0" | positive_digit
+	- identifier.=letter{letter|digit}
+constants
+-integer
+	- integer.="0"|["-"]positive_digits{digit}
+-string
+	- """{letter|digit|"_"}"""
+
+

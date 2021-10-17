@@ -1,0 +1,24 @@
+{
+declare int x;
+declare int i;
+declare boolean isSquare;
+read(x);
+i = 1;
+isSquare = 0;
+while(i*i <= x)
+{
+    if (i *i == x)
+    {
+        isSquare = 1;
+    }
+	i = i + 1;
+}
+if (isSquare == 1)
+{
+   print(“X is a square”);
+}
+if(isSquare == 0)
+   {
+	print(“X is not a square”);
+   }
+}
