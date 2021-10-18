@@ -1,2 +1,2 @@
 # LFTC
-FLCT Laboratory
+FLCD Laboratory
