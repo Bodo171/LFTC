@@ -1,0 +1,21 @@
+{
+declare int array(1000) a;
+declare int n;
+declare int i;
+declare int sum;
+i = 0;
+read(n)
+while(i < n)
+{
+   read(a[i]); 
+   i = i + 1;
+}
+sum = 0;
+i = 0;
+while(i < n)
+{
+   sum = sum + a[i] * a[i];
+   i = i + 1;
+}
+print(sum);
+}

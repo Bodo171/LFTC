@@ -1,0 +1,24 @@
+program .= compound_statement
+statement_list .= statement | {";"statement}
+statement .= simple_statement | structured_statement
+simple_statement .= declare_statement | io_statement | assign_statement
+assign_statement = identifier "=" expression
+compound_statement .= "{" statementlist "}"
+type = "int" | "string"
+declare_statement .= "declare" type ["array" "(" number_constant ")"] identifier
+letter.= "a" | "b" | .. |"z" | "A" | "B" | .. | "Z"
+positive_digit.= | "1" | .. | "9"
+digit.="0" | positive_digit
+identifier.=letter{letter|digit}
+number_constant.="0"|["-"]positive_digits{digit}
+expression.=term{("+"|"-")term}
+term.=factor{("*"|"/")factor}
+factor .= "("expression")"|variable_access|number_constant
+variable_acess .= identifier | identifier"["(expression)"]"
+io_statement .= ("read" | "print") "(" (string_constant | expression) ")"
+string_constant .= """{letter|digit|"_"}"""
+relation .= "<" | ">" | "==" | ">=" | "<="
+structured_statement .= if_statement | while_statement
+condition .= "(" expression relation expression ")"
+if_statement .= "if" conidition compound_statement
+while_statement .= "while" conidition compound_statement
