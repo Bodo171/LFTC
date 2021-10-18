@@ -1,7 +1,7 @@
 {
 declare int x;
 declare int i;
-declare boolean isSquare;
+declare int isSquare;
 read(x);
 i = 1;
 isSquare = 0;
