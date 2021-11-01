@@ -1,13 +1,13 @@
 {
-	declare int 77x;
+	declare int 77^x;
 	declare int i;
 declare boolean isSquare;
-	read(77x);
+	read(77^x);
 	i = 1;
 isSquare = 0;
-	while(i*i <= 77x)
+	while(i*i <= 77^x)
 	{
-		if (i *i == 77x)
+		if (i *i == 77^x)
 		{
 			isSquare = 1;
 		}
@@ -15,10 +15,10 @@ isSquare = 0;
 	}
 	if (isSquare == 1)
 	{
-		print("X is a square');
+		print("X_is_a_square');
 }
 if (isSquare == 0)
 {
-	print("X is not a square');
+	print("X_is_not_a_square');
 }
 }
