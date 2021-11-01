@@ -20,7 +20,16 @@ class SymbolTable:
         self._hash_table[hash_position].append(symbol_str)
         return hash_position, len(self._hash_table[hash_position]) - 1
 
+    def __str__(self):
+        acc = ""
+        for hash_key in range(self.mod):
+            if self._hash_table[hash_key]:
+                acc += "Hash key {}: ".format(hash_key)
+                acc += " ".join(self._hash_table[hash_key])
+                acc += "\n"
+        return acc
 
+"""
 print("Small table")
 st = SymbolTable(2)
 for symbol in ['aa', 'b123', 'x1'] * 2:
@@ -36,3 +45,4 @@ print("Constant table")
 large_st = SymbolTable()
 for symbol in ['127', '128', 139] * 2:
     print(large_st.retrieve_position(symbol))
+"""
