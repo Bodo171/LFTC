@@ -1,0 +1,24 @@
+{
+	declare int 77x;
+	declare int i;
+declare boolean isSquare;
+	read(77x);
+	i = 1;
+isSquare = 0;
+	while(i*i <= 77x)
+	{
+		if (i *i == 77x)
+		{
+			isSquare = 1;
+		}
+		i = i + 1;
+	}
+	if (isSquare == 1)
+	{
+		print("X is a square');
+}
+if (isSquare == 0)
+{
+	print("X is not a square');
+}
+}
