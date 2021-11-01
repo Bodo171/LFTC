@@ -15,10 +15,10 @@ while(i*i <= x)
 }
 if (isSquare == 1)
 {
-   print("X_is_a_square");
+   write("X_is_a_square");
 }
 if(isSquare == 0)
    {
-	print("X_is_not_a_square");
+	write("X_is_not_a_square");
    }
 }

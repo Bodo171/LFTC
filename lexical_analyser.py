@@ -1,5 +1,6 @@
 #1 a
 import re
+import json
 
 from symbol_table import SymbolTable
 
@@ -71,15 +72,16 @@ for line_index, raw_line in enumerate(lines):
             print("Current token",current_token, len(current_token))
             current_pos += len(current_token)
             if is_reserved_token(current_token):
-                add_to_pif(program_internal_form, -1)
+                add_to_pif(program_internal_form, (current_token, -1))
             elif is_constant(current_token) or is_symbol(current_token):
-                add_to_pif(program_internal_form, st.retrieve_position(current_token))
+                add_to_pif(program_internal_form, (current_token, st.retrieve_position(current_token)))
             else:
                 raise LexicalError("Lexical error invalid token at line {}: {}".format(line_index, current_token))
             print(current_pos, len(current_token_group))
 with open("PIF.out", "w") as pif_file:
-    pif_file.write(str(program_internal_form))
+    pif_file.write(json.dumps(program_internal_form, indent=2))
 with open("ST.out", "w") as st_file:
     st_file.write(str(st))
 print("Lexically correct")
+
 
