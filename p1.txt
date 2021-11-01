@@ -15,5 +15,5 @@ if(c > mx)
 {
 mx = c;
 }
-print(mx);
+write(mx);
 }
