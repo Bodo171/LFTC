@@ -1,0 +1,10 @@
+{
+    "initialState": "initial",
+    "finalStates": ["afterFirst"],
+    "alphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+    "states": ["initial", "afterFirst"],
+    "transitions": [
+        ["initial", "afterFirst", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"],
+        ["afterFirst", "afterFirst", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"]
+    ]
+}
