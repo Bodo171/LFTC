@@ -1,0 +1,13 @@
+{
+    "initialState": "initial",
+    "finalStates": ["afterFirst", "final0"],
+    "alphabet": "0123456789-",
+    "states": ["initial", "negativeInitial", "afterFirst", "final0"],
+    "transitions": [
+        ["initial", "afterFirst", "123456789"],
+        ["initial", "negativeInitial", "-"],
+        ["negativeInitial", "afterFirst", "123456789"],
+        ["initial", "final0", "0"],
+        ["afterFirst", "afterFirst", "0123456789"]
+    ]
+}

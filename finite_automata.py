@@ -6,12 +6,14 @@ class AutomatonError(Exception):
 
 
 class FiniteAutomaton:
-    def __init__(self):
+    def __init__(self, file_name=None):
         self._states = set()
         self._alphabet = set()
         self._initial_state = None
         self._final_states = set()
         self._transitions = {}
+        if file_name:
+            self.load_from_file(file_name)
 
     def add_state(self, state):
         if state in self._states:
@@ -25,6 +27,8 @@ class FiniteAutomaton:
     def add_transition(self, first_state: str, second_state: str, transition: str):
         if len({first_state, second_state} and self._states) < 2:
             raise AutomatonError("Invalid state")
+        if transition not in self._alphabet:
+            raise AutomatonError("Invalid transition character")
         self._transitions[first_state][transition] = second_state
 
     def add_final_state(self, state):
@@ -77,9 +81,9 @@ class FiniteAutomaton:
             return self.transition_representation()
         return getattr(self, "_"+attribute)
 
-
+""""
 my_automaton = FiniteAutomaton()
-my_automaton.load_from_file("FA.in")
+my_automaton.load_from_file("identifier.in")
 print(my_automaton.accept("aBc5"))
 print(my_automaton.accept("5aBc5"))
 menu = {
@@ -89,6 +93,7 @@ menu = {
     "4": "alphabet",
     "5": "transitions",
 }
+print(menu.values())
 for key, value in menu.items():
     print("{}. Display {}".format(key, value))
 command = ""
@@ -96,3 +101,4 @@ while command != "x":
     command = input()
     if command in menu:
         print(my_automaton.get_attribute(menu[command]))
+"""

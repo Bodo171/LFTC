@@ -3,10 +3,15 @@ import re
 import json
 
 from symbol_table import SymbolTable
-
+from finite_automata import FiniteAutomaton
 
 class LexicalError(SyntaxError):
     pass
+
+
+identifier_automaton = FiniteAutomaton("identifier.in")
+numeric_constant_automaton = FiniteAutomaton("numeric_constant.in")
+string_constant_automaton = FiniteAutomaton("string_constant.in")
 
 
 with open("token.in","r") as token_in:
@@ -20,12 +25,11 @@ def is_reserved_token(token: str):
 
 
 def is_string_constant(token: str) -> bool:
-    return bool(re.match('^"[0-9a-zA-Z_]*"$', token))
-    #return bool(re.match('^"([0-9]|[a-z]|[A-Z]|[_])*"$', token)
+    return string_constant_automaton.accept(token)
 
 
 def is_numeric_constant(token: str) -> bool:
-    return token == "0" or bool(re.match("^-?[1-9][0-9]*$", token))
+    return numeric_constant_automaton.accept(token)
 
 
 def is_constant(token: str) -> bool:
@@ -33,7 +37,7 @@ def is_constant(token: str) -> bool:
 
 
 def is_symbol(token: str) -> bool:
-    return bool(re.match("^[a-zA-Z][a-zA-Z0-9]*$", token))
+    return identifier_automaton.accept(token)
 
 
 def detect(token_group: str) -> str:
@@ -58,7 +62,8 @@ def detect(token_group: str) -> str:
 def add_to_pif(pif, row):
     pif.append(row)
 
-
+print(is_numeric_constant("1000"))
+print(numeric_constant_automaton.transition_representation())
 f = open("program.txt", "r", encoding="utf8")
 st = SymbolTable()
 program_internal_form = []
@@ -83,5 +88,4 @@ with open("PIF.out", "w") as pif_file:
 with open("ST.out", "w") as st_file:
     st_file.write(str(st))
 print("Lexically correct")
-
 
