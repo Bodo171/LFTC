@@ -1,0 +1,27 @@
+program
+int,char,string,;
+program
+program -> statement_list
+statement_list -> statement statement_list
+statement_list -> statement
+statement -> simple_statement
+statement -> compound_statement
+simple_statement -> assignment_statement ;
+simple_statement -> declaration_statement ;
+simple_statement -> io_statement ;
+compound_statement -> if_statement
+compound_statement -> while_statement
+arithmetic_operator -> +
+arithmetic_operator -> -
+arithmetic_operator -> *
+arithmetic_operator -> /
+arithmetic_operator -> %
+expression -> constant
+expression -> identifier
+expression -> identifier [ number ]
+expression -> constant
+
+
+
+
+
